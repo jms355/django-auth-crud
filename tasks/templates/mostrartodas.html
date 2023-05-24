@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tareas Todas:  {{tareas | length}} </h1>
+<ul>
+    {% for tarea in tareas %}
+    <li>
+       
+            
+            <h2>{{tarea.titulo}}</h2>
+            <p>{{tarea.descripcion}}</p>
+            <p>{{tarea.user.username}}</p>
+            <p>Tare completada el: {{tarea.datecompleted| date:'d M Y'}}</p>
+            <hr>
+                      
+            
+
+      
+    </li>
+   
+    {% endfor %}
+
+    {% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+
+            <h2 class="text-secondary text-center">{{tarea.titulo}}</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-info mb-1" style="width: 100%;">
+                    Actualizar
+                </button>
+
+            </form>
+
+            <!--este boton es para marcar la tarea como completa-->
+            <form action="{% url 'tareacompleta' tarea.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-success mb-1" style="width: 100%;">
+                    completar
+                </button>
+
+            </form>
+
+
+            <!--este boton es para eliminar la tarea-->
+            <form action="{% url 'tareaeliminada' tarea.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger mb-1" style="width: 100%;">
+                    Eliminar
+                </button>
+
+            </form>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

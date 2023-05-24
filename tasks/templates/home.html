@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card row mt-4">
+        <div class="card-header">
+          <h2>Curso de django</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, quia neque consectetur facere, voluptatem iusto doloremque ullam soluta nisi, unde impedit asperiores fugiat qui rem incidunt porro necessitatibus voluptatibus doloribus.
+            Debitis quas accusamus eligendi repellat voluptatum, odit error. Mollitia vel dolor adipisci sapiente omnis tempora assumenda nam. Quis porro doloribus optio quidem, ex expedita non labore quo, totam minima illum!
+            Fugit tenetur itaque necessitatibus hic doloremque officiis id, aliquid facilis animi ipsa possimus mollitia aut cum dicta labore eveniet harum debitis corporis voluptatibus ipsum? Officia itaque ducimus modi ex eligendi.
+            Sint eaque tenetur corporis placeat, laborum deserunt officia quod, veniam, et totam commodi fugit aspernatur enim nam sequi quis corrupti accusantium maiores unde optio eligendi obcaecati ducimus recusandae! Pariatur, iste?
+            </p>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="text-center d-none">
+                <a href="{% url 'signin' %}" class="btn btn-primary">Ingresar</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary">Registrarse</a>
+
+            </div>
+        {% else %}
+        <div class="text-center d-block">
+            <a href="{% url 'signin' %}" class="btn btn-primary">Ingresar</a>
+            <a href="{% url 'signup' %}" class="btn btn-primary">Registrarse</a>
+
+        </div>
+
+        {% endif %}
+        
+    </div>
+</div>
+
+{% endblock %}
